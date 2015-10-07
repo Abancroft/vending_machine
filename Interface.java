@@ -1,6 +1,5 @@
 package vending_machine;
 
-
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -16,8 +15,8 @@ public class Interface {
 
 	public static double round(double input)
 	{
-	  DecimalFormat twoDecimals = new DecimalFormat("#.00");
-	  return Double.valueOf(twoDecimals.format(input));
+		DecimalFormat twoDecimals = new DecimalFormat("#.00");
+		return Double.valueOf(twoDecimals.format(input));
 	}
 	
 	public static void help()
@@ -94,13 +93,13 @@ public class Interface {
 		//Checks if money is left in machine
 		if(machine.getMoneyInserted() > 0)
 		{
-		    System.out.println("Returned $" + machine.getMoneyInserted() + ".");
-		    dollars  = dollars + machine.getMoneyInserted();
-		    machine.setMoneyInserted(0.0);
+			System.out.println("Returned $" + machine.getMoneyInserted() + ".");
+			dollars  = dollars + machine.getMoneyInserted();
+			machine.setMoneyInserted(0.0);
 		}
 		else
 		{
-		    System.out.println("No money to return.");	
+			System.out.println("No money to return.");	
 		}
 	}
 	
@@ -114,27 +113,27 @@ public class Interface {
 		{
 			//Checks to make sure the slot exists
 			if(Integer.parseInt(input) >= 0 && Integer.parseInt(input) < machine.getTotalSlots())
-		    {
-			    int checkedInput = Integer.parseInt(input);
-			    Slot currentSlot = machine.getSlotListAt(checkedInput);
-			    if(!currentSlot.isEmpty())
-			    {
-			        System.out.println("Slot " + checkedInput + " contains " + currentSlot.getQuantity() + " item(s) of " +
-			        currentSlot.getName() + ".");
-			        System.out.println("One item costs $" + currentSlot.getCost() + ".");
-			    }
-			    else
-			    {
-			        System.out.println("Slot " + checkedInput + " is empty. Returning to menu...");   
-			    }
-		    }
-		    else
-		    {
-			    System.out.println("Slot not found. Returning to menu...");
-		    }
+		    	{
+				int checkedInput = Integer.parseInt(input);
+				Slot currentSlot = machine.getSlotListAt(checkedInput);
+				if(!currentSlot.isEmpty())
+			    	{
+			    		System.out.println("Slot " + checkedInput + " contains " + currentSlot.getQuantity() + " item(s) of " +
+			    		currentSlot.getName() + ".");
+			    		System.out.println("One item costs $" + currentSlot.getCost() + ".");
+			    	}
+			    	else
+			    	{
+			        	System.out.println("Slot " + checkedInput + " is empty. Returning to menu...");   
+			    	}
+		    	}
+		    	else
+		    	{
+				System.out.println("Slot not found. Returning to menu...");
+		    	}
 		} catch (NumberFormatException e) 
 		{
-			    System.out.println("Not a number. Returning to menu...");
+			System.out.println("Not a number. Returning to menu...");
 		}
 	}
 	
@@ -243,63 +242,63 @@ public class Interface {
 		//Checks to make sure money is inserted
 		if(machine.getMoneyInserted() == 0.0)
 		{
-		    System.out.println("No money in the machine. Please insert money.");
+			System.out.println("No money in the machine. Please insert money.");
 		}
 		else
 		{
-		    System.out.println("Buy from which slot?");
-		    String input = user_input.nextLine();
-		    try 
-		    {
-			    if(Integer.parseInt(input) >= 0 && Integer.parseInt(input) < machine.getTotalSlots())
-		        {
-			        int checkedInput = Integer.parseInt(input);
-			        Slot currentSlot = machine.getSlotListAt(checkedInput);
+			System.out.println("Buy from which slot?");
+		    	String input = user_input.nextLine();
+		    	try 
+		    	{
+			    	if(Integer.parseInt(input) >= 0 && Integer.parseInt(input) < machine.getTotalSlots())
+		        	{
+			        	int checkedInput = Integer.parseInt(input);
+			        	Slot currentSlot = machine.getSlotListAt(checkedInput);
 			        
 					//Checks to make sure slot isn't empty
 					if(!currentSlot.isEmpty())
-			        {
-			            System.out.println("Slot " + checkedInput + " contains " + currentSlot.getQuantity() + " item(s) of " +
-			            currentSlot.getName() + ".");
-			            System.out.println("One item costs $" + currentSlot.getCost() + ".");
-			            System.out.println("How many items would you like to buy?");
+			        	{
+			            		System.out.println("Slot " + checkedInput + " contains " + currentSlot.getQuantity() + " item(s) of " +
+			            		currentSlot.getName() + ".");
+			        	 	System.out.println("One item costs $" + currentSlot.getCost() + ".");
+			        	 	System.out.println("How many items would you like to buy?");
 			            
 						try
-			            {
-			               input = user_input.nextLine();
-			               checkedInput = Integer.parseInt(input);
-			               if(checkedInput < 0)
-			               {
-			                   System.out.println("Not a valid quantity. Returning to menu...");
-			               }
-			               else if(checkedInput == 0)
-			               {
-			                   System.out.println("0 for quantity. Cancelling purchase...");
-			               }
-			               else
-			               {
-			                   //Checks to see if there is enough of the product
-							   if(currentSlot.getQuantity() - checkedInput >= 0)
-			                   {
-			                       if((checkedInput * currentSlot.getCost()) <= machine.getMoneyInserted())
-			                       {
-			                            currentSlot.transaction(checkedInput);
-			                            System.out.println("Purchased " + checkedInput + " item(s) for $" + (checkedInput * currentSlot.getCost()) + ".");
-			                            machine.setMoneyInserted(machine.getMoneyInserted() - (checkedInput * currentSlot.getCost()));
-			                            change();
-			                       }
-			                       else
-			                       {
-			                            System.out.println("Insufficient funds. Returning to menu..."); 
-			                       }
-			                   }
+			        		{
+			               			input = user_input.nextLine();
+			               			checkedInput = Integer.parseInt(input);
+			               			if(checkedInput < 0)
+			               			{
+			                   			System.out.println("Not a valid quantity. Returning to menu...");
+			               			}
+			        			 else if(checkedInput == 0)
+			               			{
+			                			System.out.println("0 for quantity. Cancelling purchase...");
+			               			}
+			        			 else
+			               			{
+			                   			//Checks to see if there is enough of the product
+							   	if(currentSlot.getQuantity() - checkedInput >= 0)
+			                   			{
+			                       				if((checkedInput * currentSlot.getCost()) <= machine.getMoneyInserted())
+			                       				{
+			                            				currentSlot.transaction(checkedInput);
+			                            				System.out.println("Purchased " + checkedInput + " item(s) for $" + (checkedInput * currentSlot.getCost()) + ".");
+			                        				machine.setMoneyInserted(machine.getMoneyInserted() - (checkedInput * currentSlot.getCost()));
+			                            				change();
+			                       				}
+			                       				else
+			                       				{
+			                            				System.out.println("Insufficient funds. Returning to menu..."); 
+			                       				}
+			                   			}
 			                   
-							   //If there is not enough, it will try to buy what is left if the user has enough money.
-							   else
-			                   {
-			                        System.out.println("Not enough of slot's product to proceed with transaction.");
-			                        System.out.println("Would you like to buy all of the remaining product? (Y/N)");
-			                        input = user_input.nextLine();
+							   	//If there is not enough, it will try to buy what is left if the user has enough money.
+							   	else
+			                   			{
+			                        			System.out.println("Not enough of slot's product to proceed with transaction.");
+			                        			System.out.println("Would you like to buy all of the remaining product? (Y/N)");
+			                        			input = user_input.nextLine();
 									if(input.equalsIgnoreCase("Y") || input.equalsIgnoreCase("YES"))
 									{
 										if((currentSlot.getQuantity() * currentSlot.getCost()) <= machine.getMoneyInserted())
@@ -312,24 +311,24 @@ public class Interface {
 										}
 										else
 										{
-			                            System.out.println("Insufficient funds. Returning to menu..."); 
+			                            					System.out.println("Insufficient funds. Returning to menu..."); 
 										}
 									}
-			                   }
-			               }
-			            } catch (NumberFormatException e)
-			            {
-			                System.out.println("Not a valid quantity. Returning to menu...");
-			            }
-			        }
-			        else
-			        {
-			            System.out.println("Slot " + checkedInput + " is empty. Returning to menu...");   
-			        }
-		        }
-		        else
-		        {
-			        System.out.println("Slot not found. Returning to menu...");
+			                   			}
+			               			}		
+			            		} catch (NumberFormatException e)
+			            		{
+			        			System.out.println("Not a valid quantity. Returning to menu...");
+			            		}
+			        	}
+			        	else
+			        	{
+			            	System.out.println("Slot " + checkedInput + " is empty. Returning to menu...");   
+			        	}
+		        	}
+		        	else
+		        	{
+			        	System.out.println("Slot not found. Returning to menu...");
 		        }
 		    } catch (NumberFormatException e) 
 		    {
@@ -340,29 +339,29 @@ public class Interface {
 	
 	public static void menuMessage()
 	{
-	    if(machine.getMoneyInserted() != 0.0)
-	    {
-	        System.out.println("--------------------");
-		    System.out.println("Welcome to the vending machine.");
-		    System.out.println("There are " + machine.getTotalSlots() + " total item slots, of which " + machine.getFilledSlots() + " have items.");
-		    System.out.println("You currently have $" + dollars + ", and there is currently $" + machine.getMoneyInserted() + " in the machine.");
-		    System.out.println("--------------------");
-	    }
-	    else
-	    {
-	        System.out.println("--------------------");
-		    System.out.println("Welcome to the vending machine.");
-		    System.out.println("There are " + machine.getTotalSlots() + " total item slots, of which " + machine.getFilledSlots() + " have items.");
-		    System.out.println("You currently have $" + dollars + ".");
-		    System.out.println("--------------------");
-	    }
+		if(machine.getMoneyInserted() != 0.0)
+	    	{
+	        	System.out.println("--------------------");
+		    	System.out.println("Welcome to the vending machine.");
+		    	System.out.println("There are " + machine.getTotalSlots() + " total item slots, of which " + machine.getFilledSlots() + " have items.");
+		    	System.out.println("You currently have $" + dollars + ", and there is currently $" + machine.getMoneyInserted() + " in the machine.");
+		    	System.out.println("--------------------");
+	    	}
+	    	else
+	    	{
+	    		System.out.println("--------------------");
+		    	System.out.println("Welcome to the vending machine.");
+		    	System.out.println("There are " + machine.getTotalSlots() + " total item slots, of which " + machine.getFilledSlots() + " have items.");
+		    	System.out.println("You currently have $" + dollars + ".");
+		    	System.out.println("--------------------");
+	    	}
 	}
 	
 	
 	public static void main(String[] args) 
 	{
 		random.setSeed(System.currentTimeMillis());
-	    System.out.println("Starting machine...");
+	    	System.out.println("Starting machine...");
 		menuMessage();
 		System.out.println("Type 'help' for command list.");
 		
