@@ -5,7 +5,8 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Interface {
+public class Interface 
+{
     
 	static Random random = new Random();
         static Machine machine = new Machine(random.nextInt(20 - 10)+1 + 10);
