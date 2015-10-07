@@ -9,7 +9,7 @@ import java.util.Random;
 public class Interface {
     
 	static Random random = new Random();
-  static Machine machine = new Machine(random.nextInt(20 - 10)+1 + 10);
+        static Machine machine = new Machine(random.nextInt(20 - 10)+1 + 10);
 	static Scanner user_input = new Scanner(System.in);
 	static double dollars = 10.0;
 	static String input;
@@ -17,12 +17,12 @@ public class Interface {
 	public static double round(double input)
 	{
 	  DecimalFormat twoDecimals = new DecimalFormat("#.00");
-		return Double.valueOf(twoDecimals.format(input));
+	  return Double.valueOf(twoDecimals.format(input));
 	}
 	
 	public static void help()
 	{
-        System.out.println("--------------------");
+        	System.out.println("--------------------");
 		System.out.println("INSERT    Inserts money to the machine.");
 		System.out.println("BUY    Buys from a specified slot.");
 		System.out.println("CHECK    Returns information about the item slot.");
