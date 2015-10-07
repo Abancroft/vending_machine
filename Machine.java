@@ -8,7 +8,6 @@ import java.util.Calendar;
 
 public class Machine 
 {
-	
 	private int totalSlots;
 	private int filledSlots;
 	private ArrayList<String> productList =  new ArrayList<String>();
