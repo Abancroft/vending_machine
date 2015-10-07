@@ -5,10 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.ArrayList;
 
-public class Slot {
+public class Slot 
+{
 
-    private int totalSales;
-    private double totalRevenue;
+	private int totalSales;
+    	private double totalRevenue;
 	private boolean isEmpty;
 	private String itemName;
 	private double cost;
