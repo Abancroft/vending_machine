@@ -69,7 +69,8 @@ public class Machine
 			int currentSlotNumber = random.nextInt(this.totalSlots);
 			
 			//Checks to see if slot is empty before trying to fill it.
-			if(slotList.get(currentSlotNumber).isEmpty()){
+			if(slotList.get(currentSlotNumber).isEmpty())
+			{
 				slotList.set(currentSlotNumber, new Slot(productList.get(random.nextInt(productList.size())), Interface.round(.5 + random.nextDouble()), 1 + random.nextInt(12)));
 				filledCopy--;
 			}
@@ -80,8 +81,8 @@ public class Machine
 	{
 		if (!(input instanceof Integer)) 
 		{
-	        throw new NumberFormatException();
-	    }
+	        	throw new NumberFormatException();
+	    	}
 		else
 		{
 			return slotList.get((Integer)input);
@@ -97,8 +98,8 @@ public class Machine
 	{
 		if (!(moneyInserted instanceof Double)) 
 		{
-	        throw new NumberFormatException();
-	    }
+	        	throw new NumberFormatException();
+	    	}
 		else
 		{
 			this.moneyInserted = (Double) moneyInserted;
@@ -116,10 +117,10 @@ public class Machine
 		int increment = 0;
 		for(Slot i : slotList)
 		{
-		    if(i.isEmpty())
-		    {
-		        increment++;
-		    }
+			if(i.isEmpty())
+		    	{
+		        	increment++;
+		    	}
 		}
 		filledSlots = totalSlots - increment;
 		return filledSlots;
