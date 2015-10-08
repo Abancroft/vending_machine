@@ -182,7 +182,7 @@ public class Interface
 			System.out.println("Slot "+ i + ": ");
 			System.out.println("Item in slot: " + machine.getSlotListAt(i).getName());
 			System.out.println("Current amount of items: " + machine.getSlotListAt(i).getQuantity());
-			System.out.println("Current cost of items left: $" + (machine.getSlotListAt(i).getQuantity() * machine.getSlotListAt(i).getCost()));
+			System.out.println("Current cost of items left: $" + round(machine.getSlotListAt(i).getQuantity() * machine.getSlotListAt(i).getCost()));
 			if(machine.getSlotListAt(i).getTotalSales() != 0)
 			{
 				for(String v : machine.getSlotListAt(i).getSlotHistory())
