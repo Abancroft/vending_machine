@@ -93,7 +93,7 @@ public class Interface
 		//Checks if money is left in machine
 		if(machine.getMoneyInserted() > 0)
 		{
-			System.out.println("Returned $" + machine.getMoneyInserted() + ".");
+			System.out.println("Returned $" + round(machine.getMoneyInserted()) + ".");
 			dollars  = dollars + machine.getMoneyInserted();
 			machine.setMoneyInserted(0.0);
 		}
@@ -283,7 +283,7 @@ public class Interface
 			                       				if((checkedInput * currentSlot.getCost()) <= machine.getMoneyInserted())
 			                       				{
 			                            				currentSlot.transaction(checkedInput);
-			                            				System.out.println("Purchased " + checkedInput + " item(s) for $" + (checkedInput * currentSlot.getCost()) + ".");
+			                            				System.out.println("Purchased " + checkedInput + " item(s) for $" + round(checkedInput * currentSlot.getCost()) + ".");
 			                        				machine.setMoneyInserted(machine.getMoneyInserted() - (checkedInput * currentSlot.getCost()));
 			                            				change();
 			                       				}
@@ -344,7 +344,7 @@ public class Interface
 	        	System.out.println("--------------------");
 		    	System.out.println("Welcome to the vending machine.");
 		    	System.out.println("There are " + machine.getTotalSlots() + " total item slots, of which " + machine.getFilledSlots() + " have items.");
-		    	System.out.println("You currently have $" + dollars + ", and there is currently $" + machine.getMoneyInserted() + " in the machine.");
+		    	System.out.println("You currently have $" + dollars + ", and there is currently $" + round(machine.getMoneyInserted()) + " in the machine.");
 		    	System.out.println("--------------------");
 	    	}
 	    	else
