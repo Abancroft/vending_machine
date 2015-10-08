@@ -1,6 +1,5 @@
 package vending_machine;
 
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Random;
